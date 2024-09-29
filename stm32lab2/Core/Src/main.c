@@ -363,7 +363,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-int counter_segment  = 50 ;\
+int counter_segment  = 1 ;\
 int counter_led = 100;
 int flag = 1;
 
@@ -372,7 +372,7 @@ void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef * htim )
 	counter_segment --;
 	counter_led--;
 	if (counter_segment <= 0) {
-		counter_segment = 50;
+		counter_segment = 1;
 		update7SEG(index_led);
 		index_led = (index_led + 1) % 4;
 		}
