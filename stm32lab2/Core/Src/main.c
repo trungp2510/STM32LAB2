@@ -236,29 +236,35 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   setTimer1(100);
   setTimer2(50);
+  setTimer3(50);
   while (1)
   {
-	  second ++ ;
-	  if (second >= 60) {
-		  second = 0;
-		  minute ++;
+	  if(timer3_flag == 1){
+		  setTimer3(50);
+		  second++;
+		  if (second >= 60){
+			  second = 0;
+			  minute ++;
+		  }
+		  if(minute >= 60){
+			  minute = 0;
+			  hour ++;
+		  }
+		  if(hour >= 24){
+			  hour = 0;
+		  }
+		  updateClockBuffer();
 	  }
-	  if(minute >= 60) {
-		  minute = 0;
-		  hour ++;
-	  }
-	  if(hour >= 24){
-		  hour = 0;
-	  }
-	  updateClockBuffer();
 	  if (timer1_flag == 1){
-		  HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
 		  setTimer1(100);
+		  HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+
 	  }
 	  if (timer2_flag == 1){
+		  setTimer2(50);
 		  update7SEG(index_led);
 		  index_led = (index_led + 1) % 4;
-		  setTimer2(50);
+
 	  }
     /* USER CODE END WHILE */
 
