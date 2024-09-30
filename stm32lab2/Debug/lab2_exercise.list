@@ -752,8 +752,8 @@ int main(void)
   setTimer2(50);
  8000624:	2032      	movs	r0, #50	; 0x32
  8000626:	f000 f967 	bl	80008f8 <setTimer2>
-  setTimer3(50);
- 800062a:	2032      	movs	r0, #50	; 0x32
+  setTimer3(100);
+ 800062a:	2064      	movs	r0, #100	; 0x64
  800062c:	f000 f978 	bl	8000920 <setTimer3>
   while (1)
   {
@@ -762,8 +762,8 @@ int main(void)
  8000632:	681b      	ldr	r3, [r3, #0]
  8000634:	2b01      	cmp	r3, #1
  8000636:	d128      	bne.n	800068a <main+0x86>
-		  setTimer3(50);
- 8000638:	2032      	movs	r0, #50	; 0x32
+		  setTimer3(100);
+ 8000638:	2064      	movs	r0, #100	; 0x64
  800063a:	f000 f971 	bl	8000920 <setTimer3>
 		  second++;
  800063e:	4b27      	ldr	r3, [pc, #156]	; (80006dc <main+0xd8>)

@@ -236,11 +236,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   setTimer1(100);
   setTimer2(50);
-  setTimer3(50);
+  setTimer3(100);
   while (1)
   {
 	  if(timer3_flag == 1){
-		  setTimer3(50);
+		  setTimer3(100);
 		  second++;
 		  if (second >= 60){
 			  second = 0;
