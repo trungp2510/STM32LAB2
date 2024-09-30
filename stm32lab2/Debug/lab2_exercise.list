@@ -757,64 +757,64 @@ int main(void)
  800062c:	f000 f978 	bl	8000920 <setTimer3>
   while (1)
   {
+	  updateClockBuffer();
+ 8000630:	f7ff ffa8 	bl	8000584 <updateClockBuffer>
 	  if(timer3_flag == 1){
- 8000630:	4b29      	ldr	r3, [pc, #164]	; (80006d8 <main+0xd4>)
- 8000632:	681b      	ldr	r3, [r3, #0]
- 8000634:	2b01      	cmp	r3, #1
- 8000636:	d128      	bne.n	800068a <main+0x86>
+ 8000634:	4b28      	ldr	r3, [pc, #160]	; (80006d8 <main+0xd4>)
+ 8000636:	681b      	ldr	r3, [r3, #0]
+ 8000638:	2b01      	cmp	r3, #1
+ 800063a:	d126      	bne.n	800068a <main+0x86>
 		  setTimer3(100);
- 8000638:	2064      	movs	r0, #100	; 0x64
- 800063a:	f000 f971 	bl	8000920 <setTimer3>
+ 800063c:	2064      	movs	r0, #100	; 0x64
+ 800063e:	f000 f96f 	bl	8000920 <setTimer3>
 		  second++;
- 800063e:	4b27      	ldr	r3, [pc, #156]	; (80006dc <main+0xd8>)
- 8000640:	681b      	ldr	r3, [r3, #0]
- 8000642:	3301      	adds	r3, #1
- 8000644:	4a25      	ldr	r2, [pc, #148]	; (80006dc <main+0xd8>)
- 8000646:	6013      	str	r3, [r2, #0]
+ 8000642:	4b26      	ldr	r3, [pc, #152]	; (80006dc <main+0xd8>)
+ 8000644:	681b      	ldr	r3, [r3, #0]
+ 8000646:	3301      	adds	r3, #1
+ 8000648:	4a24      	ldr	r2, [pc, #144]	; (80006dc <main+0xd8>)
+ 800064a:	6013      	str	r3, [r2, #0]
 		  if (second >= 60){
- 8000648:	4b24      	ldr	r3, [pc, #144]	; (80006dc <main+0xd8>)
- 800064a:	681b      	ldr	r3, [r3, #0]
- 800064c:	2b3b      	cmp	r3, #59	; 0x3b
- 800064e:	dd07      	ble.n	8000660 <main+0x5c>
+ 800064c:	4b23      	ldr	r3, [pc, #140]	; (80006dc <main+0xd8>)
+ 800064e:	681b      	ldr	r3, [r3, #0]
+ 8000650:	2b3b      	cmp	r3, #59	; 0x3b
+ 8000652:	dd07      	ble.n	8000664 <main+0x60>
 			  second = 0;
- 8000650:	4b22      	ldr	r3, [pc, #136]	; (80006dc <main+0xd8>)
- 8000652:	2200      	movs	r2, #0
- 8000654:	601a      	str	r2, [r3, #0]
+ 8000654:	4b21      	ldr	r3, [pc, #132]	; (80006dc <main+0xd8>)
+ 8000656:	2200      	movs	r2, #0
+ 8000658:	601a      	str	r2, [r3, #0]
 			  minute ++;
- 8000656:	4b22      	ldr	r3, [pc, #136]	; (80006e0 <main+0xdc>)
- 8000658:	681b      	ldr	r3, [r3, #0]
- 800065a:	3301      	adds	r3, #1
- 800065c:	4a20      	ldr	r2, [pc, #128]	; (80006e0 <main+0xdc>)
- 800065e:	6013      	str	r3, [r2, #0]
+ 800065a:	4b21      	ldr	r3, [pc, #132]	; (80006e0 <main+0xdc>)
+ 800065c:	681b      	ldr	r3, [r3, #0]
+ 800065e:	3301      	adds	r3, #1
+ 8000660:	4a1f      	ldr	r2, [pc, #124]	; (80006e0 <main+0xdc>)
+ 8000662:	6013      	str	r3, [r2, #0]
 		  }
 		  if(minute >= 60){
- 8000660:	4b1f      	ldr	r3, [pc, #124]	; (80006e0 <main+0xdc>)
- 8000662:	681b      	ldr	r3, [r3, #0]
- 8000664:	2b3b      	cmp	r3, #59	; 0x3b
- 8000666:	dd07      	ble.n	8000678 <main+0x74>
+ 8000664:	4b1e      	ldr	r3, [pc, #120]	; (80006e0 <main+0xdc>)
+ 8000666:	681b      	ldr	r3, [r3, #0]
+ 8000668:	2b3b      	cmp	r3, #59	; 0x3b
+ 800066a:	dd07      	ble.n	800067c <main+0x78>
 			  minute = 0;
- 8000668:	4b1d      	ldr	r3, [pc, #116]	; (80006e0 <main+0xdc>)
- 800066a:	2200      	movs	r2, #0
- 800066c:	601a      	str	r2, [r3, #0]
+ 800066c:	4b1c      	ldr	r3, [pc, #112]	; (80006e0 <main+0xdc>)
+ 800066e:	2200      	movs	r2, #0
+ 8000670:	601a      	str	r2, [r3, #0]
 			  hour ++;
- 800066e:	4b1d      	ldr	r3, [pc, #116]	; (80006e4 <main+0xe0>)
- 8000670:	681b      	ldr	r3, [r3, #0]
- 8000672:	3301      	adds	r3, #1
- 8000674:	4a1b      	ldr	r2, [pc, #108]	; (80006e4 <main+0xe0>)
- 8000676:	6013      	str	r3, [r2, #0]
+ 8000672:	4b1c      	ldr	r3, [pc, #112]	; (80006e4 <main+0xe0>)
+ 8000674:	681b      	ldr	r3, [r3, #0]
+ 8000676:	3301      	adds	r3, #1
+ 8000678:	4a1a      	ldr	r2, [pc, #104]	; (80006e4 <main+0xe0>)
+ 800067a:	6013      	str	r3, [r2, #0]
 		  }
 		  if(hour >= 24){
- 8000678:	4b1a      	ldr	r3, [pc, #104]	; (80006e4 <main+0xe0>)
- 800067a:	681b      	ldr	r3, [r3, #0]
- 800067c:	2b17      	cmp	r3, #23
- 800067e:	dd02      	ble.n	8000686 <main+0x82>
+ 800067c:	4b19      	ldr	r3, [pc, #100]	; (80006e4 <main+0xe0>)
+ 800067e:	681b      	ldr	r3, [r3, #0]
+ 8000680:	2b17      	cmp	r3, #23
+ 8000682:	dd02      	ble.n	800068a <main+0x86>
 			  hour = 0;
- 8000680:	4b18      	ldr	r3, [pc, #96]	; (80006e4 <main+0xe0>)
- 8000682:	2200      	movs	r2, #0
- 8000684:	601a      	str	r2, [r3, #0]
+ 8000684:	4b17      	ldr	r3, [pc, #92]	; (80006e4 <main+0xe0>)
+ 8000686:	2200      	movs	r2, #0
+ 8000688:	601a      	str	r2, [r3, #0]
 		  }
-		  updateClockBuffer();
- 8000686:	f7ff ff7d 	bl	8000584 <updateClockBuffer>
 	  }
 	  if (timer1_flag == 1){
  800068a:	4b17      	ldr	r3, [pc, #92]	; (80006e8 <main+0xe4>)
@@ -854,7 +854,7 @@ int main(void)
  80006ca:	4253      	negpl	r3, r2
  80006cc:	4a09      	ldr	r2, [pc, #36]	; (80006f4 <main+0xf0>)
  80006ce:	6013      	str	r3, [r2, #0]
-	  if(timer3_flag == 1){
+	  updateClockBuffer();
  80006d0:	e7ae      	b.n	8000630 <main+0x2c>
  80006d2:	bf00      	nop
  80006d4:	20000060 	.word	0x20000060

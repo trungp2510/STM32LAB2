@@ -239,6 +239,7 @@ int main(void)
   setTimer3(100);
   while (1)
   {
+	  updateClockBuffer();
 	  if(timer3_flag == 1){
 		  setTimer3(100);
 		  second++;
@@ -253,7 +254,6 @@ int main(void)
 		  if(hour >= 24){
 			  hour = 0;
 		  }
-		  updateClockBuffer();
 	  }
 	  if (timer1_flag == 1){
 		  setTimer1(100);
